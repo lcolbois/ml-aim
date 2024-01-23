@@ -211,12 +211,10 @@ By default, we probe features from the intermediate 6 layers that provide the be
 ## Citation
 If you find our work useful, please consider citing us as:
 ```
-@misc{elnouby2024scalable,
-      title={Scalable Pre-training of Large Autoregressive Image Models},
-      author={Alaaeldin El-Nouby and Michal Klein and Shuangfei Zhai and Miguel Angel Bautista and Alexander Toshev and Vaishaal Shankar and Joshua M Susskind and Armand Joulin},
-      year={2024},
-      eprint={2401.08541},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{el2024scalable,
+  title={Scalable Pre-training of Large Autoregressive Image Models},
+  author={El-Nouby, Alaaeldin and Klein, Michal and Zhai, Shuangfei and Bautista, Miguel Angel and Toshev, Alexander and Shankar, Vaishaal and Susskind, Joshua M and Joulin, Armand},
+  journal={arXiv preprint arXiv:2401.08541},
+  year={2024}
 }
 ```
