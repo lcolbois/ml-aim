@@ -197,7 +197,7 @@ class MLP(nn.Module):
 
 class Block(nn.Module):
     dim: int
-    attn_target: Callable[[bool, ...], nn.Module]
+    attn_target: Callable[..., nn.Module]
     mlp_hidden_dim: Optional[int] = None
     act_layer: Callable[[jax.Array], jax.Array] = nn.activation.gelu
     norm_layer: Callable[..., nn.Module] = LayerNorm

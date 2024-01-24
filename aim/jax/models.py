@@ -86,7 +86,7 @@ class AIM(mixins.AIMMixin, nn.Module):
         return self.forward(x, mask=mask, max_block_id=max_block_id)
 
 
-def _get_attention_target(dim: int, num_heads: int) -> Callable[[bool], nn.Module]:
+def _get_attention_target(dim: int, num_heads: int) -> Callable[..., nn.Module]:
     def callback(use_bias: bool, name: str) -> nn.Module:
         return layers.Attention(
             dim=dim, num_heads=num_heads, use_bias=use_bias, name=name
