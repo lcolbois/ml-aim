@@ -5,6 +5,7 @@ import pathlib
 import pytest
 
 import flax.linen as jax_nn
+import jax
 import jax.numpy as jnp
 import mlx.core as mx
 import numpy as np
@@ -13,6 +14,7 @@ from mlx import nn as mlx_nn
 from torch import nn as torch_nn
 
 from aim import constants, utils
+from aim.jax import models as jax_models
 
 
 @pytest.mark.parametrize(
@@ -81,3 +83,17 @@ def test_max_block_id(img: np.ndarray, max_block_id: int, probe_layers: str):
 
     assert isinstance(feats, list)
     assert len(feats) == (max_block_id + 1)
+
+
+@pytest.mark.parametrize("dtype", [jnp.float16, jnp.bfloat16, jnp.float32])
+def test_jax_dtype(dtype: jnp.dtype):
+    model = jax_models.aim_600M()
+    inp = jnp.ones((1, 224, 224, 3), dtype=dtype)
+
+    params = model.init(jax.random.PRNGKey(0), inp)
+    params = jax.tree_util.tree_map(lambda x: x.astype(dtype), params)
+
+    (logits, features), _ = model.apply(params, inp, mutable=["batch_stats"])
+
+    assert logits.dtype == dtype, (logits.dtype, dtype)
+    assert features.dtype == dtype, (features.dtype, dtype)

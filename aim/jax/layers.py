@@ -75,8 +75,8 @@ class SinCosPosEmbed(nn.Module):
     def __call__(self, h: int, w: int, embed_dim: int) -> jax.Array:
         assert embed_dim % 2 == 0, embed_dim
 
-        grid_h = jnp.arange(h, dtype=float)
-        grid_w = jnp.arange(w, dtype=float)
+        grid_h = jnp.arange(h) * 1.0  # implicitly convert to floating
+        grid_w = jnp.arange(w) * 1.0
         grid = jnp.meshgrid(grid_w, grid_h, indexing="xy")
         grid = jnp.stack(grid, axis=0)
         grid = grid.reshape([2, 1, h, w])
@@ -90,7 +90,7 @@ class SinCosPosEmbed(nn.Module):
 
     @staticmethod
     def _get_1d_sincos_pos_embed_from_grid(embed_dim: int, pos: jax.Array) -> jax.Array:
-        omega = jnp.arange(embed_dim // 2, dtype=float)
+        omega = jnp.arange(embed_dim // 2) * 1.0
         omega /= embed_dim / 2.0
         omega = 1.0 / 10000**omega  # (D/2,)
 
