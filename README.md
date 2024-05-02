@@ -3,6 +3,8 @@
 *Alaaeldin El-Nouby, Michal Klein, Shuangfei Zhai, Miguel Angel Bautista, Alexander Toshev, Vaishaal Shankar,
 Joshua M Susskind, and Armand Joulin*
 
+To appear at ICML 2024
+
 [[`Paper`](https://arxiv.org/abs/2401.08541)]  [[`BibTex`](#citation)]
 
 This software project accompanies the research paper, [Scalable Pre-training of Large Autoregressive Image Models](https://arxiv.org/abs/2401.08541).
@@ -214,7 +216,7 @@ If you find our work useful, please consider citing us as:
 @article{el2024scalable,
   title={Scalable Pre-training of Large Autoregressive Image Models},
   author={El-Nouby, Alaaeldin and Klein, Michal and Zhai, Shuangfei and Bautista, Miguel Angel and Toshev, Alexander and Shankar, Vaishaal and Susskind, Joshua M and Joulin, Armand},
-  journal={arXiv preprint arXiv:2401.08541},
+  journal={International Conference on Machine Learning},
   year={2024}
 }
 ```
